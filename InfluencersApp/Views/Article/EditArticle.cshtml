@@ -1,0 +1,42 @@
+﻿@model EditArticleViewModel
+
+@{
+    var parms = new Dictionary<string, string>
+    {
+        {"viewModel", "" }
+    };
+
+    ViewData["Title"] = "EditArticleView";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <p class="lead">This is the page where you can see the full details of an article</p>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6">
+            <div class="card mb-4 mt-4 border-info" style="border-width: 3px">
+                <div class="card-header bg-info rounded-0" style="height: 50px">
+                    <i class="fa fa-star" style="color:azure; background-color: transparent" id="s1"></i>
+                    <i class="fa fa-star" style="color:azure; background-color: transparent" id="s2"></i>
+                    <i class="fa fa-star" style="color:azure; background-color: transparent" id="s3"></i>
+                    <i class="fa fa-star" style="color:azure; background-color: transparent" id="s4"></i>
+                    <i class="fa fa-star" style="color:azure; background-color: transparent" id="s5"></i>
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Model.ArticleDetailsViewModel.ArticleDetails.Title</h5>
+                    <p class="card-text">@Model.ArticleDetailsViewModel.ArticleDetails.Content</p>                    
+                    @foreach (var tag in Model.ArticleDetailsViewModel.ArticleDetails.ArticleTags)
+                    {
+                        <strong class="text-info">#@tag, </strong>
+                    }
+                    <p class="lead mt-4">
+                        <a class="btn btn-info btn-lg" asp-action="EditArticle" asp-controller="Article" role="button">                            
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

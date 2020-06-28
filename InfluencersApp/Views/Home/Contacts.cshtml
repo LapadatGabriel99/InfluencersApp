@@ -1,0 +1,22 @@
+﻿@model List<ContactsViewModel> 
+
+@{
+    ViewData["Title"] = "Contacts";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p class="lead text-md-left">This is the contacts page...</p>
+    <p class="lead text-md-left">
+        In case something goes wrong or you just want to contact me, do so at:       
+    </p>
+    <div class="text-md-left">
+        @foreach (var contact in Model)
+        {
+            <p><strong class="text-info text-md-left"><a href=@contact.MailService>@contact.ContactEmail</a></strong></p>
+        }
+    </div>
+</div>
+
+
+

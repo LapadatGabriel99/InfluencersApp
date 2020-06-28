@@ -1,0 +1,14 @@
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\bin\Debug\netcoreapp3.1\BusinessLogic.deps.json
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\bin\Debug\netcoreapp3.1\BusinessLogic.dll
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\bin\Debug\netcoreapp3.1\BusinessLogic.pdb
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.csprojAssemblyReference.cache
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.AssemblyInfoInputs.cache
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.AssemblyInfo.cs
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.csproj.CoreCompileInputs.cache
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.dll
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.pdb
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\bin\Debug\netcoreapp3.1\DataAccess.dll
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\bin\Debug\netcoreapp3.1\Repository.dll
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\bin\Debug\netcoreapp3.1\Repository.pdb
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\bin\Debug\netcoreapp3.1\DataAccess.pdb
+E:\Projects\VisualStudio\InfluencersApp\BusinessLogic\obj\Debug\netcoreapp3.1\BusinessLogic.csproj.CopyComplete

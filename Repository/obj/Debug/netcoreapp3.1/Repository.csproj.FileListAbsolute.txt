@@ -1,0 +1,12 @@
+E:\Projects\VisualStudio\InfluencersApp\Repository\bin\Debug\netcoreapp3.1\Repository.deps.json
+E:\Projects\VisualStudio\InfluencersApp\Repository\bin\Debug\netcoreapp3.1\Repository.dll
+E:\Projects\VisualStudio\InfluencersApp\Repository\bin\Debug\netcoreapp3.1\Repository.pdb
+E:\Projects\VisualStudio\InfluencersApp\Repository\bin\Debug\netcoreapp3.1\DataAccess.dll
+E:\Projects\VisualStudio\InfluencersApp\Repository\bin\Debug\netcoreapp3.1\DataAccess.pdb
+E:\Projects\VisualStudio\InfluencersApp\Repository\obj\Debug\netcoreapp3.1\Repository.csprojAssemblyReference.cache
+E:\Projects\VisualStudio\InfluencersApp\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfoInputs.cache
+E:\Projects\VisualStudio\InfluencersApp\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfo.cs
+E:\Projects\VisualStudio\InfluencersApp\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CoreCompileInputs.cache
+E:\Projects\VisualStudio\InfluencersApp\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CopyComplete
+E:\Projects\VisualStudio\InfluencersApp\Repository\obj\Debug\netcoreapp3.1\Repository.dll
+E:\Projects\VisualStudio\InfluencersApp\Repository\obj\Debug\netcoreapp3.1\Repository.pdb

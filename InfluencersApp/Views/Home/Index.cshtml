@@ -1,0 +1,39 @@
+﻿@model List<IndexViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p class="lead">This is the influencers web app, please enjoy.</p>
+    @foreach (var article in Model)
+    {
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-5">
+                <div class="card mb-4 mt-4 border-info" style="border-width: 3px">
+                    <div class="card-header bg-info rounded-0" style="height: 50px">
+                        <i class="fa fa-star" style="color:azure; background-color: transparent" id="s1"></i>
+                        <i class="fa fa-star" style="color:azure; background-color: transparent" id="s2"></i>
+                        <i class="fa fa-star" style="color:azure; background-color: transparent" id="s3"></i>
+                        <i class="fa fa-star" style="color:azure; background-color: transparent" id="s4"></i>
+                        <i class="fa fa-star" style="color:azure; background-color: transparent" id="s5"></i>
+                    </div>
+                    <div class="card-body text-center ">
+                        <h5 class="card-title">@article.DisplayData.Title</h5>
+                        <p class="card-text">@article.DisplayData.ShortContent</p>
+                        <p class="card-text">Author: <a href="#" class="card-link text-info">@article.DisplayData.AuthorNickname</a></p>
+                        <p class="lead mt-4">
+                            <a class="btn btn-info btn-lg" asp-action="ArticleDetails" asp-controller="Article" asp-route-id="@article.DisplayData.Id" role="button">
+                                View Article
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

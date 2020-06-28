@@ -1,0 +1,12 @@
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.deps.json
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.dll
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csprojAssemblyReference.cache
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfoInputs.cache
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.AssemblyInfo.cs
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.runtimeconfig.json
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.runtimeconfig.dev.json
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\bin\Debug\netcoreapp3.1\DataAccess.pdb
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.dll
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.pdb
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.genruntimeconfig.cache
+E:\Projects\VisualStudio\InfluencersApp\DataAccess\obj\Debug\netcoreapp3.1\DataAccess.csproj.CoreCompileInputs.cache
