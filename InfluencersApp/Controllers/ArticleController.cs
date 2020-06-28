@@ -1,8 +1,8 @@
-﻿using BusinessLogic.DataTransfer;
-using BusinessLogic.Interfaces;
+﻿using BusinessLogic.Interfaces;
 using BusinessLogic.Models;
+using InfluencersApp.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Differencing;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
@@ -16,11 +16,15 @@ namespace InfluencersApp.Controllers
 
         private readonly IArticleService _articleService;
 
-        public ArticleController(ILogger<ArticleController> logger, IArticleService articleService)
+        private readonly IConfiguration _configuration;
+
+        public ArticleController(ILogger<ArticleController> logger, IArticleService articleService, IConfiguration configuration)
         {            
             _logger = logger;
 
             _articleService = articleService;
+
+            _configuration = configuration;
         }     
             
         public IActionResult CreateArticle()
@@ -55,7 +59,9 @@ namespace InfluencersApp.Controllers
                 Subject = "Article added...",
                 Content = $"Hi { viewModel.CreateArticleData.AuthorNickname }, " +
                 $"we've sent you this confirmation email so that we can verify it's you"
-            };            
+            };
+
+            await emailViewModel.SendEmail(_configuration);
 
             _articleSubmitMessage = "Article was submitted successfuly";
 
@@ -89,6 +95,9 @@ namespace InfluencersApp.Controllers
 
         public async Task<IActionResult> SubmitChanges(EditArticleViewModel viewModel)
         {
+
+            await _articleService.UpdateArticle(viewModel.ArticleDetailsViewModel.ArticleDetails);
+
             viewModel.EmailViewModel = new EmailViewModel
             {
                 To = viewModel.ArticleDetailsViewModel.ArticleDetails.AuthorEmail,
@@ -96,11 +105,9 @@ namespace InfluencersApp.Controllers
                 Subject = $"Article content changed...",
                 Content = $"Hi { viewModel.ArticleDetailsViewModel.ArticleDetails.AuthorNickname }, " +
                 $"we've sent you this confirmation email so that we can verify it's you"
-            };            
+            };
 
-            await _articleService.UpdateArticle(viewModel.ArticleDetailsViewModel.ArticleDetails);
-
-            RedirectToAction(actionName: "SendEmail", controllerName: "Email", viewModel.EmailViewModel);
+            await viewModel.EmailViewModel.SendEmail(_configuration);
 
             return Redirect($"article/articleDetails/{viewModel.ArticleDetailsViewModel.ArticleDetails.ArticleId}");
         }
