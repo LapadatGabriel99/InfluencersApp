@@ -121,14 +121,14 @@ namespace Repository.Repositories
 
         public async Task UpdateArticleWithTags(Article article, Tag tag)
         {
-            var articleTags = await Context.ArticleTags.Where(at => at.ArticleId == article.Id).FirstOrDefaultAsync();            
+            var articleTags = await Context.ArticleTags.Include(at => at.Tag).Where(at => at.ArticleId == article.Id).FirstOrDefaultAsync();            
 
             articleTags.Tag.Name = tag.Name;
 
             var currentArticle = await Context.Article.Where(a => a.Id == article.Id).FirstOrDefaultAsync();
 
             currentArticle.Title = article.Title;
-            currentArticle.Title = article.Content;
+            currentArticle.Content = article.Content;
 
             await Context.SaveChangesAsync();
         }

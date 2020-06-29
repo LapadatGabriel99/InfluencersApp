@@ -81,7 +81,7 @@ namespace BusinessLogic.Services
                     },
                     new Tag
                     {
-                        Name = article.ArticleTags.Aggregate((a, b) => $" {a} {b}")
+                        Name = article.Tag
                     }
                 );
         }

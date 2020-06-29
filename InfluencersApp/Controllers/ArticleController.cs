@@ -77,25 +77,23 @@ namespace InfluencersApp.Controllers
 
             return View(viewModel);
         }
-
-        //[HttpGet("article/articleDetails/{viewModel}")]
-        //public IActionResult ArticleDetails(ArticleDetailsViewModel viewModel)
-        //{
-        //    return View(viewModel);
-        //}
-
-        [HttpGet]
-        public IActionResult EditArticle(ArticleDetailsViewModel articleDetailsViewModel)
+        
+        [HttpGet("article/editArticle/{id}")]
+        public async Task<IActionResult> EditArticle(int id)
         {
-            return View(new EditArticleViewModel
+            var articleDetailsViewModel = await _articleService.GetArticleDetailsViewModel(id);
+
+            var editArticleViewModel = new EditArticleViewModel
             {
                 ArticleDetailsViewModel = articleDetailsViewModel
-            });
+            };
+
+            return View(editArticleViewModel);
         }
 
+        [HttpPost]
         public async Task<IActionResult> SubmitChanges(EditArticleViewModel viewModel)
-        {
-
+        {           
             await _articleService.UpdateArticle(viewModel.ArticleDetailsViewModel.ArticleDetails);
 
             viewModel.EmailViewModel = new EmailViewModel
@@ -109,7 +107,7 @@ namespace InfluencersApp.Controllers
 
             await viewModel.EmailViewModel.SendEmail(_configuration);
 
-            return Redirect($"article/articleDetails/{viewModel.ArticleDetailsViewModel.ArticleDetails.ArticleId}");
+            return Redirect($"articleDetails/{viewModel.ArticleDetailsViewModel.ArticleDetails.ArticleId}");
         }
     }
 }

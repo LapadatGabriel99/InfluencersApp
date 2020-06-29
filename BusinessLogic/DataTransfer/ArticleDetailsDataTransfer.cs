@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BusinessLogic.DataTransfer
 {
@@ -18,5 +19,7 @@ namespace BusinessLogic.DataTransfer
         public string AuthorEmail { get; set; }
 
         public IEnumerable<string> ArticleTags { get; set; }
+        
+        public string Tag { get; set; }
     }
 }
