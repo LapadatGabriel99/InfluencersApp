@@ -28,7 +28,15 @@ namespace InfluencersApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add the controllers with their respective views into the service collection
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".ArticlesVotes.Session";
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+            
             services.AddControllersWithViews();
 
             // Add the database context of this application
@@ -62,14 +70,14 @@ namespace InfluencersApp
 
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapControllerRoute(
-                    name: "edit",
-                    pattern: "{controller=Article}/{action=EditArticle}/{viewModel?}");
+                endpoints.MapControllers();
             });
         }
     }

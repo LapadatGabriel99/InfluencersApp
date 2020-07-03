@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
 
 namespace DataAccess.Data.Models
 {
@@ -18,7 +15,7 @@ namespace DataAccess.Data.Models
         
         public string Email { get; set; }
 
-        public int? Votes { get; set; }
+        public int Votes { get; set; }
 
         public virtual ICollection<Article> Article { get; set; }
     }

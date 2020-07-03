@@ -4,14 +4,16 @@ using DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(InfluencersContext))]
-    partial class InfluencersContextModelSnapshot : ModelSnapshot
+    [Migration("20200630103843_AddedVotesColumnToTheArticleTable")]
+    partial class AddedVotesColumnToTheArticleTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,6 +43,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("varchar(255)")
                         .HasMaxLength(255)
                         .IsUnicode(false);
+
+                    b.Property<int>("Votes")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -89,7 +94,7 @@ namespace DataAccess.Migrations
                         .HasMaxLength(255)
                         .IsUnicode(false);
 
-                    b.Property<int>("Votes")
+                    b.Property<int?>("Votes")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

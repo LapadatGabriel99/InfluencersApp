@@ -5,6 +5,7 @@ using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace Repository.Repositories
@@ -131,6 +132,15 @@ namespace Repository.Repositories
             currentArticle.Content = article.Content;
 
             await Context.SaveChangesAsync();
+        }
+
+        public async Task<bool> UpdateArticleAuthorScore(int id, int score)
+        {
+            var article = await Context.Article.Include(a => a.Author).Where(a => a.Id == id).FirstOrDefaultAsync();
+
+            article.Author.Votes += score;
+
+            return await Context.SaveChangesAsync() > 0;
         }
     }
 }

@@ -24,6 +24,7 @@
                     <p class="card-text">Author: @Model.ArticleDetails.AuthorNickname</p>
                     <p class="card-text">Author: @Model.ArticleDetails.AuthorEmail</p>
                     <p class="card-text">Publised Date: @Model.ArticleDetails.CreationDate</p>
+                    <p class="card-text" id="article-id" hidden>@Model.ArticleDetails.ArticleId</p>
                     @foreach (var tag in Model.ArticleDetails.ArticleTags)
                     {
                         <strong class="text-info">#@tag, </strong>
@@ -33,8 +34,16 @@
                             Edit Article
                         </a>
                     </p>
+
+                    <div class="align-content-sm-center float-md-right action-btn" id="vote">
+                        <input type="button" value="Vote" class="btn btn-dark btn-lg " />
+                    </div>                    
                 </div>
             </div>
         </div>
+    </div>
+
+    <div>
+        <strong id="response"></strong>
     </div>
 </div>

@@ -14,5 +14,7 @@ namespace BusinessLogic.Interfaces
         Task AddArticle(CreateArticleDataTranser article);
 
         Task UpdateArticle(ArticleDetailsDataTransfer article);
+
+        Task<bool> UpdateScore(VoteDataTransfer voteData);
     }
 }

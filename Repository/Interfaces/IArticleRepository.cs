@@ -21,5 +21,7 @@ namespace Repository.Interfaces
         Task<IEnumerable<Article>> GetArticlesWithAuthors();
 
         Task UpdateArticleWithTags(Article article, Tag tag);
+
+        Task<bool> UpdateArticleAuthorScore(int id, int score);
     }
 }

@@ -3,10 +3,12 @@ using BusinessLogic.Filters;
 using BusinessLogic.Interfaces;
 using BusinessLogic.Models;
 using DataAccess.Data.Models;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
@@ -84,6 +86,11 @@ namespace BusinessLogic.Services
                         Name = article.Tag
                     }
                 );
+        }
+
+        public async Task<bool> UpdateScore(VoteDataTransfer voteData)
+        {
+            return await _articleRepository.UpdateArticleAuthorScore(voteData.ArticleId, voteData.Score);
         }
     }
 }

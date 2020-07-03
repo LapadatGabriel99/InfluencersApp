@@ -29,7 +29,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="CreateArticle">Create Article</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Author" asp-action="Rankings">View Rankings</a>                           
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Author" asp-action="Rankings">View Rankings</a>
                         </li>
                         <li class="nav-item text-right">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacts">Contacts</a>
@@ -52,8 +52,11 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/starRating.js" asp-append-version="true"></script>
+    <script src="~/js/vote.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-cookie/jquery.cookie.js"></script>
     @RenderSection("Scripts", required: false)
 
 </body>
