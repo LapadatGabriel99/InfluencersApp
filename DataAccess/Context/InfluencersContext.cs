@@ -100,6 +100,23 @@ namespace DataAccess.Context
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Comment>(entity =>
+            {
+                entity.Property(e => e.Nickname)
+                    .IsRequired()
+                    .HasMaxLength(35)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Content)
+                    .IsRequired()
+                    .HasMaxLength(2000)
+                    .IsUnicode(false);
+
+                entity.HasOne(c => c.Article)
+                    .WithMany(a => a.Comments)
+                    .HasForeignKey(c => c.ArticleId);
+            });
+
             OnModelCreatingPartial(modelBuilder);
         }
 

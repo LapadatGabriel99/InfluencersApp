@@ -25,5 +25,7 @@ namespace DataAccess.Data.Models
         public virtual Author Author { get; set; }
 
         public virtual IEnumerable<ArticleTags> ArticleTags { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
