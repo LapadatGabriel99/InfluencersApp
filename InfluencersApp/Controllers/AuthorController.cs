@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Interfaces;
+using BusinessLogic.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
@@ -17,20 +18,32 @@ namespace InfluencersApp.Controllers
 
             _authorService = authorService;
         }
-      
-        public IActionResult Rankings()
-        {
-            return View();
-        }
 
-        public async Task<IActionResult> ByScore()
+        [HttpGet]
+        public async Task<IActionResult> Rankings(int choice)
         {
-            return View();
-        }
+            var viewModel = new RankingViewModel();
+            
+            if (choice == 0)
+            {
+                ViewData["By"] = "(Score)";
 
-        public async Task<IActionResult> ByNumberOfArticles()
-        {
-            return View();
-        }
+                //viewModel = await _authorService.GetAuthorsByScore();
+            }
+            else if (choice == 1)
+            {
+                ViewData["By"] = "(Number Of Articles)";
+
+                //viewModel = await _authorService.GetAuthorsByNumberOfArticles();
+            }
+            else if (choice == 2)
+            {
+                ViewData["By"] = "(Number Of Commented Articles)";
+
+                //viewModel = await _authorService.GetAuthorsByCommentedArticles();
+            }
+
+            return View(viewModel);
+        }                 
     }
 }

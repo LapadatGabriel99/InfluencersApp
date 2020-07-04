@@ -13,5 +13,11 @@ namespace Repository.Interfaces
         Task AddRange(ICollection<Author> articles);
         
         Task RemoveRange(ICollection<Author> articles);
+
+        Task<IEnumerable<Author>> GetAuthorsByScore();
+
+        Task<IEnumerable<Author>> GetAuthorsByNumberOfArticles();
+
+        Task<IEnumerable<Author>> GetAuthorsByNumberOfCommentedArticles();
     }
 }

@@ -91,6 +91,6 @@ namespace BusinessLogic.Services
         public async Task<bool> UpdateScore(VoteDataTransfer voteData)
         {
             return await _articleRepository.UpdateArticleAuthorScore(voteData.ArticleId, voteData.Score);
-        }
+        }        
     }
 }

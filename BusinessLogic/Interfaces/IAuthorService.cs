@@ -6,8 +6,10 @@ namespace BusinessLogic.Interfaces
 {
     public interface IAuthorService
     {
-        Task<IEnumerable<RankingViewModel>> GetAuthorsByScore();
+        Task<RankingViewModel> GetAuthorsByScore();
 
-        Task<IEnumerable<RankingViewModel>> GetAuthorsByVotes();
+        Task<RankingViewModel> GetAuthorsByNumberOfArticles();
+
+        Task<RankingViewModel> GetAuthorsByCommentedArticles();
     }
 }

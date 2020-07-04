@@ -11,24 +11,14 @@ using System.Threading.Tasks;
 namespace Repository.Repositories
 {    
     public class TagRepository : Repository<Tag>, ITagRepository
-    {
-        #region Constructors
-        
+    {       
         public TagRepository(InfluencersContext context) : base(context)
         {
 
         }
-
-        #endregion
-
-        #region Private Members
+      
+        private InfluencersContext Context { get => _context as InfluencersContext; }   
        
-        private InfluencersContext Context { get => _context as InfluencersContext; }
-
-        #endregion
-
-        #region Interface Implementation
- 
         public async Task<ICollection<Tag>> GetAll()
         {
             return await Context.Tag.ToListAsync();
@@ -46,7 +36,6 @@ namespace Repository.Repositories
             Context.Tag.RemoveRange(tags);
 
             await Context.SaveChangesAsync();
-        }
-        #endregion
+        }  
     }
 }

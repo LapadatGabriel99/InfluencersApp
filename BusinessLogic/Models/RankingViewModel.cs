@@ -7,6 +7,6 @@ namespace BusinessLogic.Models
 {
     public class RankingViewModel
     {
-        public ICollection<RankingDataTransfer> RankingData { get; set; }
+        public IEnumerable<RankingDataTransfer> RankingData { get; set; }
     }
 }

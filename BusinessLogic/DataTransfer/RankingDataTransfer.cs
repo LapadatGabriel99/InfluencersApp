@@ -10,8 +10,8 @@ namespace BusinessLogic.DataTransfer
 
         public string AuthorEmail { get; set; }
 
-        public string AuthorScore { get; set; }
+        public int AuthorScore { get; set; }
 
-        public string AuthorNumberOfArticles { get; set; }
+        public int AuthorNumberOfArticles { get; set; }
     }
 }

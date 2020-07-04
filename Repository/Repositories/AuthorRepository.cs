@@ -11,24 +11,14 @@ using System.Threading.Tasks;
 namespace Repository.Repositories
 {    
     public class AuthorRepository : Repository<Author>, IAuthorRepository
-    {
-        #region Constructors
-        
+    {       
         public AuthorRepository(InfluencersContext context) : base(context)
         {
 
         }
-
-        #endregion
-
-        #region Private Properties
-        
+       
         private InfluencersContext Context { get => _context as InfluencersContext; }
-
-        #endregion
-
-        #region Interface Implementation
-        
+       
         public async Task<ICollection<Author>> GetAll()
         {
             return await Context.Author.ToListAsync();
@@ -48,6 +38,23 @@ namespace Repository.Repositories
             await Context.SaveChangesAsync();
         }
 
-        #endregion
+        public async Task<IEnumerable<Author>> GetAuthorsByScore()
+        {
+            return await Context.Author
+                .OrderByDescending(a => a.Votes).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Author>> GetAuthorsByNumberOfArticles()
+        {
+            return await Context.Author
+                .Include(a => a.Article)
+                .OrderByDescending(a => a.Article.Count)
+                .ToListAsync();
+        }
+
+        public Task<IEnumerable<Author>> GetAuthorsByNumberOfCommentedArticles()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

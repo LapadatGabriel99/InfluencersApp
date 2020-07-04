@@ -1,6 +1,10 @@
-﻿using BusinessLogic.Interfaces;
+﻿using BusinessLogic.DataTransfer;
+using BusinessLogic.Enums;
+using BusinessLogic.Filters;
+using BusinessLogic.Interfaces;
 using BusinessLogic.Models;
 using Repository.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -19,14 +23,27 @@ namespace BusinessLogic.Services
             _articleRepository = articleRepository;
         }
 
-        public async Task<IEnumerable<RankingViewModel>> GetAuthorsByScore()
+        public async Task<RankingViewModel> GetAuthorsByScore()
         {
-            throw new System.NotImplementedException();
+            var authors = await _authorRepository.GetAuthorsByScore();
+
+            var rankingData = authors.GetRankingData(RankBy.Score);
+
+            return new RankingViewModel { RankingData = rankingData };
         }
 
-        public async Task<IEnumerable<RankingViewModel>> GetAuthorsByVotes()
+        public async Task<RankingViewModel> GetAuthorsByNumberOfArticles()
         {
-            throw new System.NotImplementedException();
+            var authors = await _authorRepository.GetAuthorsByNumberOfArticles();
+
+            var rankingData = authors.GetRankingData(RankBy.NumberOfArticles);
+
+            return new RankingViewModel { RankingData = rankingData };
+        }
+
+        public async Task<RankingViewModel> GetAuthorsByCommentedArticles()
+        {
+            throw new NotImplementedException();
         }
     }
 }

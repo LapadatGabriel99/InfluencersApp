@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var byScore = new Dictionary<string, string> { { "choice", "0" } };
+    var byNumberOfArticles = new Dictionary<string, string> { { "choice", "1" } };
+    var byCommentedArticles = new Dictionary<string, string> { { "choice", "2" } };
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -28,10 +33,30 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="CreateArticle">Create Article</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Author" asp-action="Rankings">View Rankings</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" id="navbarDropdown"
+                               asp-area="" asp-controller="Author" asp-action="Rankings"
+                               data-toggle="dropdown">
+                                View Rankings
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Author" asp-action="Rankings" 
+                                   asp-all-route-data="byScore">
+                                    By Score
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Author" asp-action="Rankings" 
+                                   asp-all-route-data="byNumberOfArticles">
+                                    By Number Of Articles
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="Author" asp-action="Rankings" 
+                                   asp-all-route-data="byCommentedArticles">
+                                    By Commented Articles
+                                </a>
+                            </div>
                         </li>
-                        <li class="nav-item text-right">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacts">Contacts</a>
                         </li>
                     </ul>

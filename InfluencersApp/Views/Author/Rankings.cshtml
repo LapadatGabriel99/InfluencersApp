@@ -1,13 +1,13 @@
-﻿@{
+﻿@model RankingViewModel
+
+@{
     ViewData["Title"] = "Rankings";
+
+    var by = ViewData["By"];
 }
 
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
-    <p class="lead">This is the page where you can see the rankings of various authors.</p>    
-
-    <select class="browser-default custom-select custom-select-lg">
-        <option selected>By Score</option>
-        <option value="1">By Number Of Articles</option>        
-    </select>
+    <p class="lead">This is the page where you can see the rankings of various authors.</p>
+    <h5>@by</h5>
 </div>
