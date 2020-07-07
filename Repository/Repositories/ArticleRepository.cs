@@ -45,7 +45,8 @@ namespace Repository.Repositories
         {
             return await Context.Article
                 .Include(x => x.Author)
-                .Include(x => x.ArticleTags)                
+                .Include(x => x.ArticleTags)
+                .Include(x => x.Comments)
                 .Where(x => x.Id == id)
                 .Select(a => new { a, ArticleTags = Context.ArticleTags.Include(at => at.Tag).Where(at => at.ArticleId == id) })
                 .Select(b => new Article
@@ -57,7 +58,8 @@ namespace Repository.Repositories
                     AuthorId = b.a.AuthorId,
                     CreationDate = b.a.CreationDate,
                     Author = b.a.Author,
-                    ArticleTags = b.ArticleTags
+                    ArticleTags = b.ArticleTags,
+                    Comments = b.a.Comments.OrderByDescending(c => c.PublishDate).ToList()
                 })
                 .FirstOrDefaultAsync();           
         }
@@ -142,6 +144,21 @@ namespace Repository.Repositories
             var article = await Context.Article.Include(a => a.Author).Where(a => a.Id == id).FirstOrDefaultAsync();
 
             article.Author.Votes += score;
+
+            return await Context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<bool> AddCommentToArticle(int id, string nickname, string content)
+        {
+            var article = await Context.Article.Include(a => a.Comments).Where(a => a.Id == id).FirstOrDefaultAsync();
+
+            article.Comments.Add(new Comment
+            {
+                Content = content,
+                Nickname = nickname,
+                PublishDate = DateTime.Now,
+                Article = article
+            });
 
             return await Context.SaveChangesAsync() > 0;
         }

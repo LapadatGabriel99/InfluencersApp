@@ -2,7 +2,9 @@
 {
     public class CommentDataTransfer
     {
-        public string Pseudoname { get; set; }
+        public int ArticleId { get; set; }
+
+        public string Nickname { get; set; }
 
         public string Content { get; set; }
 

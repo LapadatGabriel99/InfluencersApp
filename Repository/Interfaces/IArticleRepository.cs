@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Repository.Interfaces
-{   
+{
     public interface IArticleRepository : IRepository<Article>
-    {        
+    {
         Task<ICollection<Article>> GetAll();
 
         Task<Article> GetCompleteArticle(int id);
 
         Task AddRange(ICollection<Article> articles);
-        
+
         Task RemoveRange(ICollection<Article> articles);
 
         Task AddArticleWithAuthorAndTags(Article article, Author author, Tag tag);
@@ -23,5 +23,7 @@ namespace Repository.Interfaces
         Task UpdateArticleWithTags(Article article, Tag tag);
 
         Task<bool> UpdateArticleAuthorScore(int id, int score);
+
+        Task<bool> AddCommentToArticle(int id, string nickname, string content);
     }
 }

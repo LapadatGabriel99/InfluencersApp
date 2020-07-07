@@ -21,5 +21,7 @@ namespace BusinessLogic.DataTransfer
         public IEnumerable<string> ArticleTags { get; set; }
         
         public string Tag { get; set; }
+
+        public Dictionary<string, string> Comments { get; set; }
     }
 }

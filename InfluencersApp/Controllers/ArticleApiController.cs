@@ -43,7 +43,18 @@ namespace InfluencersApp.Controllers
         [HttpPost("articleApi/sendComment")]
         public async Task<CommentDataTransfer> SendComment([FromBody] CommentDataTransfer commentDataTransfer)
         {
+            if(await _articleService.AddComment(commentDataTransfer))
+            {
+                commentDataTransfer.Succeded = true;
 
+                return commentDataTransfer;
+            }
+            else
+            {
+                commentDataTransfer.Succeded = false;
+
+                return commentDataTransfer;
+            }
         }
     }
 }

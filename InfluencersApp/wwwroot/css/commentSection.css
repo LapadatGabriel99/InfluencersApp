@@ -33,3 +33,14 @@
     top: 10px;
     left: -6px;
 }
+
+.comments-block {
+    margin-left: 285px;
+    margin-right: 285px;
+    min-height: 200px;
+}
+
+.comment {
+    margin-left: -100px;
+    margin-right: -75px;
+}

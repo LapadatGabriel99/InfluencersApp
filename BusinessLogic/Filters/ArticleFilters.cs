@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BusinessLogic.DataTransfer;
+using System;
 
 namespace BusinessLogic.Filters
 {
@@ -52,8 +53,21 @@ namespace BusinessLogic.Filters
                 Content = article.Content,
                 Title = article.Title,
                 CreationDate = article.CreationDate,
-                ArticleTags = article.ArticleTags.Select(at => at.Tag.Name),
+                ArticleTags = article.ArticleTags.Select(at => at.Tag.Name),  
+                Comments = article.Comments.ToCommentDictionary()
             };
+        }
+
+        private static Dictionary<string, string> ToCommentDictionary(this IEnumerable<Comment> comments)
+        {
+            var dictionary = new Dictionary<string, string>();
+
+            foreach (var comment in comments)
+            {
+                dictionary.Add(comment.Nickname, comment.Content);
+            }
+
+            return dictionary;
         }
     }
 }
