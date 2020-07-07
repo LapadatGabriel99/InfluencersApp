@@ -18,7 +18,7 @@ namespace BusinessLogic.Filters
                     Id = a.Id,
                     Title = a.Title, 
                     ShortContent = a.Content, 
-                    AuthorNickname = a.Author.Nickname, 
+                    AuthorNickname = a.AuthorNickname, 
                 }
                 );
             });
@@ -48,7 +48,7 @@ namespace BusinessLogic.Filters
             {
                 ArticleId = article.Id,
                 AuthorEmail = article.Author.Email,
-                AuthorNickname = article.Author.Nickname,
+                AuthorNickname = article.AuthorNickname,
                 Content = article.Content,
                 Title = article.Title,
                 CreationDate = article.CreationDate,

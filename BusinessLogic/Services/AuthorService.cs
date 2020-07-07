@@ -13,14 +13,10 @@ namespace BusinessLogic.Services
     public class AuthorService : IAuthorService
     {
         private readonly IAuthorRepository _authorRepository;
-
-        private readonly IArticleRepository _articleRepository;
-
-        public AuthorService(IAuthorRepository authorRepository, IArticleRepository articleRepository)
+       
+        public AuthorService(IAuthorRepository authorRepository)
         {
-            _authorRepository = authorRepository;
-
-            _articleRepository = articleRepository;
+            _authorRepository = authorRepository;           
         }
 
         public async Task<RankingViewModel> GetAuthorsByScore()
@@ -35,7 +31,7 @@ namespace BusinessLogic.Services
         public async Task<RankingViewModel> GetAuthorsByNumberOfArticles()
         {
             var authors = await _authorRepository.GetAuthorsByNumberOfArticles();
-
+           
             var rankingData = authors.GetRankingData(RankBy.NumberOfArticles);
 
             return new RankingViewModel { RankingData = rankingData };
@@ -43,7 +39,10 @@ namespace BusinessLogic.Services
 
         public async Task<RankingViewModel> GetAuthorsByCommentedArticles()
         {
-            throw new NotImplementedException();
+            return new RankingViewModel
+            {
+                RankingData = new List<RankingDataTransfer>() { new RankingDataTransfer() }
+            };
         }
     }
 }

@@ -137,7 +137,7 @@
                 'Content-Type': 'application/json'
             },
             type: "POST",
-            url: "http://localhost:54096/ArticleApi/articleApi/send",
+            url: "http://localhost:54096/ArticleApi/articleApi/sendVote",
             data: JSON.stringify(data),
             success: (response) => {              
                 if (response.succeded === true) {

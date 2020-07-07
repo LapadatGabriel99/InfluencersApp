@@ -28,19 +28,22 @@ namespace InfluencersApp.Controllers
             {
                 ViewData["By"] = "(Score)";
 
-                //viewModel = await _authorService.GetAuthorsByScore();
+                viewModel = await _authorService.GetAuthorsByScore();
+                viewModel.Choice = choice;
             }
             else if (choice == 1)
             {
                 ViewData["By"] = "(Number Of Articles)";
 
-                //viewModel = await _authorService.GetAuthorsByNumberOfArticles();
+                viewModel = await _authorService.GetAuthorsByNumberOfArticles();
+                viewModel.Choice = choice;
             }
             else if (choice == 2)
             {
                 ViewData["By"] = "(Number Of Commented Articles)";
 
-                //viewModel = await _authorService.GetAuthorsByCommentedArticles();
+                viewModel = await _authorService.GetAuthorsByCommentedArticles();
+                viewModel.Choice = choice;
             }
 
             return View(viewModel);

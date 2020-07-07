@@ -52,6 +52,7 @@ namespace Repository.Repositories
                 {
                     Title = b.a.Title,
                     Content = b.a.Content,
+                    AuthorNickname = b.a.AuthorNickname,
                     Id = b.a.Id,
                     AuthorId = b.a.AuthorId,
                     CreationDate = b.a.CreationDate,
@@ -65,9 +66,12 @@ namespace Repository.Repositories
         {
             var articleTags = new ArticleTags();
 
-            var a = await Context.Author.Where(a => a.Email == author.Email).FirstOrDefaultAsync();
+            var existingAuthor = await Context.Author
+                .Include(a => a.Article)
+                .Where(a => a.Email == author.Email)
+                .FirstOrDefaultAsync();
 
-            if (a == null)
+            if (existingAuthor == null)
             {
                 article.Author = author;
                 author.Article.Add(article);
@@ -87,8 +91,8 @@ namespace Repository.Repositories
             }
             else
             {
-                article.Author = author;
-                author.Article.Add(article);
+                article.Author = existingAuthor;
+                existingAuthor.Article.Add(article);
 
                 articleTags.Article = article;
                 articleTags.Tag = tag;
@@ -105,16 +109,15 @@ namespace Repository.Repositories
 
         public async Task<IEnumerable<Article>> GetArticlesWithAuthors()
         {
-            return await Context.Article
-                .Include(x => x.Author)
-                .Select(a => new { a.Author, a.Id, a.Title, a.Content, a.CreationDate })
+            return await Context.Article                
+                .Select(a => new { a.Id, a.Title, a.Content, a.CreationDate, a.AuthorNickname })
                 .Select(b => new Article
                 {
                     Id = b.Id,
                     Title = b.Title,
                     Content = b.Content,
                     CreationDate = b.CreationDate,
-                    Author = b.Author
+                    AuthorNickname = b.AuthorNickname                    
                 })
                 .OrderByDescending(a => a.CreationDate)
                 .ToListAsync();

@@ -3,12 +3,10 @@ using BusinessLogic.Filters;
 using BusinessLogic.Interfaces;
 using BusinessLogic.Models;
 using DataAccess.Data.Models;
-using Microsoft.EntityFrameworkCore.Query.Internal;
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
@@ -57,11 +55,11 @@ namespace BusinessLogic.Services
                     {
                         Title = article.Title,
                         Content = article.Content,
-                        CreationDate = DateTime.UtcNow,                        
+                        CreationDate = DateTime.UtcNow,   
+                        AuthorNickname = article.AuthorNickname
                     },
                     new Author
-                    {
-                        Nickname = article.AuthorNickname,
+                    {                        
                         Email = article.AuthorEmail
                     },
                     new Tag

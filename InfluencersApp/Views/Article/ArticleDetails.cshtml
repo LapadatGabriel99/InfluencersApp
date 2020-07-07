@@ -4,46 +4,88 @@
     ViewData["Title"] = "Article Details";
 }
 
-<div class="text-center">
-    <h1 class="display-4">@ViewData["Title"]</h1>
-    <p class="lead">This is the page where you can see the full details of an article</p>
+    <div class="text-center">
+        <h1 class="display-4">@ViewData["Title"]</h1>
+        <p class="lead">This is the page where you can see the full details of an article</p>
 
-    <div class="row justify-content-center">
-        <div class="col-sm-12 col-md-6">
-            <div class="card mb-4 mt-4 border-info" style="border-width: 3px">
-                <div class="card-header bg-info rounded-0" style="height: 50px">
-                    <i class="fa fa-star" style="color:azure; background-color: transparent" id="s1"></i>
-                    <i class="fa fa-star" style="color:azure; background-color: transparent" id="s2"></i>
-                    <i class="fa fa-star" style="color:azure; background-color: transparent" id="s3"></i>
-                    <i class="fa fa-star" style="color:azure; background-color: transparent" id="s4"></i>
-                    <i class="fa fa-star" style="color:azure; background-color: transparent" id="s5"></i>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">@Model.ArticleDetails.Title</h5>
-                    <p class="card-text">@Model.ArticleDetails.Content</p>
-                    <p class="card-text">Author: @Model.ArticleDetails.AuthorNickname</p>
-                    <p class="card-text">Author: @Model.ArticleDetails.AuthorEmail</p>
-                    <p class="card-text">Publised Date: @Model.ArticleDetails.CreationDate</p>
-                    <p class="card-text" id="article-id" hidden>@Model.ArticleDetails.ArticleId</p>
-                    @foreach (var tag in Model.ArticleDetails.ArticleTags)
-                    {
-                        <strong class="text-info">#@tag, </strong>
-                    }
-                    <p class="lead mt-4">
-                        <a class="btn btn-info btn-lg" asp-action="EditArticle" asp-controller="Article" asp-route-id="@Model.ArticleDetails.ArticleId" role="button">
-                            Edit Article
-                        </a>
-                    </p>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-6">
+                <div class="card mb-4 mt-4 border-info" style="border-width: 3px">
+                    <div class="card-header bg-info rounded-0" style="height: 50px">
+                        <i class="fa fa-star" style="color:azure; background-color: transparent" id="s1"></i>
+                        <i class="fa fa-star" style="color:azure; background-color: transparent" id="s2"></i>
+                        <i class="fa fa-star" style="color:azure; background-color: transparent" id="s3"></i>
+                        <i class="fa fa-star" style="color:azure; background-color: transparent" id="s4"></i>
+                        <i class="fa fa-star" style="color:azure; background-color: transparent" id="s5"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@Model.ArticleDetails.Title</h5>
+                        <p class="card-text">@Model.ArticleDetails.Content</p>
+                        <p class="card-text">Author: @Model.ArticleDetails.AuthorNickname</p>
+                        <p class="card-text">Author: @Model.ArticleDetails.AuthorEmail</p>
+                        <p class="card-text">Publised Date: @Model.ArticleDetails.CreationDate</p>
+                        <p class="card-text" id="article-id" hidden>@Model.ArticleDetails.ArticleId</p>
+                        @foreach (var tag in Model.ArticleDetails.ArticleTags)
+                        {
+                            <strong class="text-info">#@tag, </strong>
+                        }
+                        <p class="lead mt-4">
+                            <a class="btn btn-info btn-lg" asp-action="EditArticle" asp-controller="Article" asp-route-id="@Model.ArticleDetails.ArticleId" role="button">
+                                Edit Article
+                            </a>
+                        </p>
 
-                    <div class="align-content-sm-center float-md-right action-btn" id="vote">
-                        <input type="button" value="Vote" class="btn btn-dark btn-lg " />
-                    </div>                    
+                        <div class="align-content-sm-center float-md-right action-btn" id="vote">
+                            <input type="button" value="Vote" class="btn btn-dark btn-lg " />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div>
-        <strong id="response"></strong>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-6">
+                <form class="form">
+                    <div class="form-group">
+                        <label class="control-label float-md-left">Pseudoname</label>
+                        <input class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label float-md-left">Enter Comment</label>
+                        <input class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>                    
+                </form>
+            </div>
+        </div>
+
+        <label class="control-label">Comment Section</label>       
+        <div class="border border-info rounded-right">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-6">
+                    <div class="media comment-box float-md-left">
+                        <div class="media-body pt-3 pl-2 pb-5 pr-4 d-block">
+                            <h5 class="media-heading">John Doe</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-6">
+                    <div class="media comment-box float-md-left">
+                        <div class="media-body pt-3 pl-2 pb-5 pr-4 d-block">
+                            <h5 class="media-heading">Jane Doe</h5>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+        <div>
+            <strong id="response"></strong>
+        </div>
     </div>
-</div>

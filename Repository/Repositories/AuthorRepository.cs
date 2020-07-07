@@ -5,11 +5,10 @@ using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repository.Repositories
-{    
+{
     public class AuthorRepository : Repository<Author>, IAuthorRepository
     {       
         public AuthorRepository(InfluencersContext context) : base(context)
@@ -39,15 +38,17 @@ namespace Repository.Repositories
         }
 
         public async Task<IEnumerable<Author>> GetAuthorsByScore()
-        {
-            return await Context.Author
-                .OrderByDescending(a => a.Votes).ToListAsync();
+        {            
+            return await Context.Author                                
+                .OrderByDescending(a => a.Votes)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Author>> GetAuthorsByNumberOfArticles()
-        {
-            return await Context.Author
+        {            
+            return await Context.Author               
                 .Include(a => a.Article)
+                .Select(a => a)
                 .OrderByDescending(a => a.Article.Count)
                 .ToListAsync();
         }

@@ -45,11 +45,16 @@ namespace DataAccess.Context
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
+                entity.Property(e => e.AuthorNickname)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
                 entity.HasOne(d => d.Author)
                     .WithMany(p => p.Article)
                     .HasForeignKey(d => d.AuthorId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Article__AuthorI__267ABA7A");
+                    .HasConstraintName("FK__Article__AuthorI__267ABA7A");                
             });
 
             modelBuilder.Entity<ArticleTags>(entity =>
@@ -77,12 +82,7 @@ namespace DataAccess.Context
                 entity.Property(e => e.Email)
                     .IsRequired()
                     .HasMaxLength(255)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Nickname)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
+                    .IsUnicode(false);                
             });
 
             modelBuilder.Entity<Tag>(entity =>

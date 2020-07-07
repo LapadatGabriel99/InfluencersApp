@@ -17,8 +17,7 @@ namespace BusinessLogic.Filters
                 authors.ToList().ForEach(a =>
                 {
                     rankingData.Add(new RankingDataTransfer
-                    {
-                        AuthorNickname = a.Nickname,
+                    {                       
                         AuthorEmail = a.Email,
                         AuthorScore = a.Votes
                     });
@@ -29,10 +28,9 @@ namespace BusinessLogic.Filters
                 authors.ToList().ForEach(a =>
                 {
                     rankingData.Add(new RankingDataTransfer
-                    {
-                        AuthorNickname = a.Nickname,
+                    {                        
                         AuthorEmail = a.Email,
-                        AuthorScore = a.Article.Count
+                        AuthorNumberOfArticles = a.Article.Count
                     });
                 });
             }            

@@ -9,5 +9,50 @@
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
     <p class="lead">This is the page where you can see the rankings of various authors.</p>
-    <h5>@by</h5>
+    <h5>@by</h5>    
+</div>
+
+<div class="justify-content-center mt-5">
+    @if (Model.Choice == 0)
+    {
+        @foreach (var item in Model.RankingData)
+        {
+            <div class="row justify-content-center mb-3">
+                <div class="col-sm-12 col-md-4">
+                    <h5>@item.AuthorEmail</h5>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <h5>@item.AuthorScore</h5>
+                </div>
+            </div>
+        }
+    }
+    else if (Model.Choice == 1)
+    {
+        @foreach (var item in Model.RankingData)
+        {
+            <div class="row justify-content-center mb-3">
+                <div class="col-sm-12 col-md-4">
+                    <h5>@item.AuthorEmail</h5>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <h5>@item.AuthorNumberOfArticles</h5>
+                </div>
+            </div>
+        }
+    }
+    else if (Model.Choice == 2)
+    {
+        @foreach (var item in Model.RankingData)
+        {
+            <div class="row justify-content-center mb-3">
+                <div class="col-sm-12 col-md-4">
+                    <h5></h5>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <h5></h5>
+                </div>
+            </div>
+        }
+    }
 </div>

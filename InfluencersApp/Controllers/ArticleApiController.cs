@@ -1,6 +1,7 @@
 ﻿using BusinessLogic.DataTransfer;
 using BusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
@@ -22,8 +23,8 @@ namespace InfluencersApp.Controllers
         }
 
         
-        [HttpPost("articleApi/send")]
-        public async Task<VoteDataTransfer> Send([FromBody] VoteDataTransfer voteDataTransfer)
+        [HttpPost("articleApi/sendVote")]
+        public async Task<VoteDataTransfer> SendVote([FromBody] VoteDataTransfer voteDataTransfer)
         {
             if (await _articleService.UpdateScore(voteDataTransfer))
             {
@@ -37,6 +38,12 @@ namespace InfluencersApp.Controllers
 
                 return voteDataTransfer;
             }
+        }
+
+        [HttpPost("articleApi/sendComment")]
+        public async Task<CommentDataTransfer> SendComment([FromBody] CommentDataTransfer commentDataTransfer)
+        {
+
         }
     }
 }

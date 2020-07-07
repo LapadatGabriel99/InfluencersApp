@@ -8,5 +8,7 @@ namespace BusinessLogic.Models
     public class RankingViewModel
     {
         public IEnumerable<RankingDataTransfer> RankingData { get; set; }
+
+        public int Choice { get; set; }
     }
 }

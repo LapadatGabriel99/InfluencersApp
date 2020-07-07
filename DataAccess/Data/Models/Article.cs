@@ -19,6 +19,8 @@ namespace DataAccess.Data.Models
         
         public string Content { get; set; }
 
+        public string AuthorNickname { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime CreationDate { get; set; }
 
