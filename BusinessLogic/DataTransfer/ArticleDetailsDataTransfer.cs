@@ -22,6 +22,6 @@ namespace BusinessLogic.DataTransfer
         
         public string Tag { get; set; }
 
-        public Dictionary<string, string> Comments { get; set; }
+        public List<KeyValuePair<string,string>> Comments { get; set; }
     }
 }

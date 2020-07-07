@@ -41,17 +41,17 @@
                                 View Rankings
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-controller="Author" asp-action="Rankings" 
+                                <a class="dropdown-item" asp-controller="Author" asp-action="Rankings"
                                    asp-all-route-data="byScore">
                                     By Score
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" asp-controller="Author" asp-action="Rankings" 
+                                <a class="dropdown-item" asp-controller="Author" asp-action="Rankings"
                                    asp-all-route-data="byNumberOfArticles">
                                     By Number Of Articles
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" asp-controller="Author" asp-action="Rankings" 
+                                <a class="dropdown-item" asp-controller="Author" asp-action="Rankings"
                                    asp-all-route-data="byCommentedArticles">
                                     By Commented Articles
                                 </a>
@@ -83,6 +83,7 @@
     <script src="~/js/starRating.js" asp-append-version="true"></script>
     <script src="~/js/vote.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-cookie/jquery.cookie.js"></script>
+    <script src="~/js/comment.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 
 </body>

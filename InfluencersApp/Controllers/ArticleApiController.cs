@@ -1,12 +1,11 @@
 ﻿using BusinessLogic.DataTransfer;
 using BusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
 namespace InfluencersApp.Controllers
-{   
+{
     [ApiController]
     [Route("[controller]")]
     public class ArticleApiController : ControllerBase

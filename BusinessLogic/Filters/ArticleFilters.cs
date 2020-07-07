@@ -58,13 +58,13 @@ namespace BusinessLogic.Filters
             };
         }
 
-        private static Dictionary<string, string> ToCommentDictionary(this IEnumerable<Comment> comments)
+        private static List<KeyValuePair<string, string>> ToCommentDictionary(this IEnumerable<Comment> comments)
         {
-            var dictionary = new Dictionary<string, string>();
+            var dictionary = new List<KeyValuePair<string, string>>();
 
             foreach (var comment in comments)
             {
-                dictionary.Add(comment.Nickname, comment.Content);
+                dictionary.Add(new KeyValuePair<string, string>(comment.Nickname, comment.Content));
             }
 
             return dictionary;
